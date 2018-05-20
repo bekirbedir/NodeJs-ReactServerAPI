@@ -1,7 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import AppRoutes from './routes/index';
+import mongoose from 'mongoose';
+import axios from 'axios';
+import cors from 'cors';
+
+mongoose.connect('mongodb://ebdbuser:ebdbpassword@ds229380.mlab.com:29380/egitimbudur_db' );
+mongoose.Promise = global.Promise;
+
 const app  = express();
+
+app.use(cors());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
